@@ -1,18 +1,15 @@
-def nastav_semafor(barva):
+def create_tourist_counter():
+    amount_of_tourists = 0
+    def add_tourist():
+        nonlocal amount_of_tourists
+        amount_of_tourists += 1
+        return amount_of_tourists
+    return add_tourist
 
-    barva_semaforu = barva
-
-    def muzes_jet():
-        if (barva_semaforu == "zelená"):
-            return True
-        else:
-            return False
-
-    return muzes_jet
-
-
-muze_jet = nastav_semafor("zelená")
-print(muze_jet())
-
-muze_jet = nastav_semafor("červená")
-print(muze_jet())
+add_new_tourist = create_tourist_counter()
+amount = add_new_tourist()
+print(amount)
+amount = add_new_tourist()
+print(amount)
+amount = add_new_tourist()
+print(amount)
